@@ -149,7 +149,6 @@ module.exports = {
             }
         }
 
-        let gmdEmotes = require("../gmdemotes.json");
         function getDiffIcon(level) {
             let lowerCase = {
                 "Auto": "auto",
@@ -214,7 +213,7 @@ module.exports = {
                 if (level.copiedFrom) badges += "<:copy:986050580235559003> ";
                 if (level.large) badges += "<:large:972072845192593498> ";
 
-                finalString += `\`${number}\` - ${gmdEmotes[getDiffIcon(level)]} ${starCount}${coins}| **${level.name}** ${langFile["BY"]} **${level.creator}**${badges}(\`${level.id}\`)\n<:download:972062600911290458> \`${level.downloads}\` ${likeEmote} \`${level.likes}\` <:gdclock:1228681550724599838> \`${level.length}\`\n<:playsong:972084225509568532> **${level.song.name}** ${langFile["BY"]} **${level.song.artist}**\n\n`;
+                finalString += `\`${number}\` - ${starCount}${coins}| **${level.name}** ${langFile["BY"]} **${level.creator}**${badges}(\`${level.id}\`)\n<:download:972062600911290458> \`${level.downloads}\` ${likeEmote} \`${level.likes}\` <:gdclock:1228681550724599838> \`${level.length}\`\n<:playsong:972084225509568532> **${level.song.name}** ${langFile["BY"]} **${level.song.artist}**\n\n`;
             }
             return finalString;
         }
@@ -278,9 +277,6 @@ module.exports = {
                     dropdownOptions.push({
                         label: `${level.name} ${langFile["BY"]} ${level.creator}`,
                         value: `${i.toString()}-${Buffer.from(level.creator).toString("base64")}`,
-                        emoji: {
-                            name: getDiffIcon(level).replaceAll("-", "_"), id: gmdEmotes[getDiffIcon(level)].split(":")[2].replaceAll(">", "")
-                        }
                     })
                 }
 
@@ -342,9 +338,6 @@ module.exports = {
                     dropdownOptions.push({
                         label: `${level.name} ${langFile["BY"]} ${level.creator}`,
                         value: `${i.toString()}-${Buffer.from(level.creator).toString("base64")}`,
-                        emoji: {
-                            name: getDiffIcon(level).replaceAll("-", "_"), id: gmdEmotes[getDiffIcon(level)].split(":")[2].replaceAll(">", "")
-                        }
                     })
                 }
 
