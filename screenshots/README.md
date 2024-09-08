@@ -1,0 +1,1 @@
+Screenshots made with the `/screenshot` command are saved here, don't delete this folder

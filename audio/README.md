@@ -1,0 +1,1 @@
+Converted audio files made with the `/convert audio` command are saved here, don't delete this folder

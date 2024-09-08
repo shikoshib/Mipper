@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="((lang-iso))">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>((mipper-name))</title>
+    <link rel="stylesheet" href="mipper.css">
+    <link rel="icon" href="mpr.ico" />
+    <link rel="stylesheet" href="anchorfix.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="mipper-logo">
+                <a href="/mipper">
+                    <img src="mipper.svg" width="32" height="32">
+                    <span class="mipper-txt">((mipper-name))</span>
+                </a>
+            </div>
+            <div class="login-wrapper">
+                <a href="dashboard">((log-in))</a>
+            </div>
+            <div class="user-preview">
+                <div class="user-pfp">
+                    <img width="32">
+                </div>
+                <div class="user-down-arrow">
+                    <img src="down_arrow.svg" alt="">
+                </div>
+            </div>
+        </nav>
+
+        <div class="overlay-container">
+            <div class="user-overlay">
+                <div class="overlay-upper-part">
+                    <div class="user-overlay-pfp">
+                        <img width="48">
+                    </div>
+                    <span class="user-overlay-tag"></span>
+                </div>
+                <div class="overlay-hr">
+                    <hr>
+                </div>
+                <div class="overlay-options">
+                    <a href="./dashboard">
+                        <overlay-option>
+                            <img src="cog.svg" width="16">
+                            <span>((dashboard))</span>
+                        </overlay-option>
+                    </a>
+                    <option-delimiter></option-delimiter>
+                    <overlay-option class="lang-option">
+                        <img src="lang.svg" width="16">
+                        <span>((language)): ((lang-name))</span>
+                    </overlay-option>
+                    <option-delimiter></option-delimiter>
+                    <a href="./logout">
+                        <overlay-option class="log-out">
+                            <img src="exit.svg" width="16">
+                            <span>((logout))</span>
+                        </overlay-option>
+                    </a>
+                </div>
+            </div>
+            <div class="lang-dropdown">
+                <overlay-option id="en">
+                    <span>English</span>
+                </overlay-option>
+                <overlay-option id="ru">
+                    <span>Русский</span>
+                </overlay-option>
+                <overlay-option id="ua">
+                    <span>Українська</span>
+                </overlay-option></div>
+        </div>
+    </header>
+    <main>
+        <div class="gradient-bg"></div>
+        <div class="bot-pfp-wrapper">
+            <img src="mipper.png" alt="Mipper" width="256">
+        </div>
+        <div class="main-text">
+            <h1 style="font-size:48px">Mipper</h1>
+            <p style="font-size:18px">((slogan))</p>
+        </div>
+        <div class="stats-wrapper">
+            <div class="stats">
+                <div class="stat-container servers">
+                    <div class="stat-value">((servers))</div>
+                    <div class="stat-key">((servers-desc))</div>
+                </div>
+                <div class="stat-container users">
+                    <div class="stat-value">((commands-ran))</div>
+                    <div class="stat-key">((cmd-ran))</div>
+                </div>
+            </div>
+        </div>
+        <div class="perks-wrapper">
+            <div class="perk-container">
+                <div class="perk-img">
+                    <img src="ban.svg" style="border-radius: 10px;box-shadow: 0 0 12px rgba(0, 0, 0,.666);">
+                </div>
+                <div class="perk-text">
+                    <div class="perk-title">
+                        <h1>((moderation-title))</h1>
+                    </div>
+                    <div class="perk-content">
+                        ((moderation-desc))
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="perks-wrapper">
+            <div class="perk-container">
+                <div class="perk-img">
+                    <img src="ghost-ping.svg" style="border-radius: 10px;box-shadow: 0 0 12px rgba(0, 0, 0,.666);">
+                </div>
+                <div class="perk-text">
+                    <div class="perk-title">
+                        <h1>((gp-title))</h1>
+                    </div>
+                    <div class="perk-content">
+                        ((gp-desc2))
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="perks-wrapper">
+            <div class="perk-container">
+                <div class="perk-img">
+                    <img src="ai.svg" style="border-radius: 10px;box-shadow: 0 0 12px rgba(0, 0, 0,.666);">
+                </div>
+                <div class="perk-text">
+                    <div class="perk-title">
+                        <h1>((ai-title))</h1>
+                    </div>
+                    <div class="perk-content">
+                        ((ai-desc))
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add">
+            <h1 style="font-size:40px">((what-wait))</h1>
+            <p style="font-size:18px;translate: 0 -8px;">((add-mipper))</p>
+        </div>
+        <div class="invite">
+            <a
+                href="https://discord.com/api/oauth2/authorize?client_id=929992928615608412&permissions=8&scope=bot%20applications.commands">
+                <button>((invite))</button>
+            </a>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="policies">
+            <a href="./privacy" target="_blank">((privacy))</a>
+            <a href="./terms" target="_blank">((terms))</a>
+        </div>
+        <p>© 2024 shikoshib</p>
+    </footer>
+</body>
+<script>
+    const user = "((userinfo))";
+    if (user) {
+        document.querySelector(".user-preview").style.display = "flex";
+        document.querySelector(".login-wrapper").style.display = "none";
+
+        document.querySelector(".user-pfp img").src = user.avatar;
+        document.querySelector(".user-overlay-pfp img").src = user.avatar;
+        const username = user.username;
+        if (user.discriminator != "0") username += `#${user.discriminator}`
+        document.querySelector(".user-overlay-tag").innerHTML = username;
+    }
+</script>
+<script src="main.js"></script>
+
+</html>

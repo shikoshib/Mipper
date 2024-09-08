@@ -1,0 +1,9 @@
+a:hover {
+    text-decoration: underline;
+}
+
+.mipper-logo a:hover,
+.socials a:hover,
+.overlay-options a:hover {
+    text-decoration: none;
+}

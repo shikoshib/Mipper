@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="((lang-iso))">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mipper.css">
+    <link rel="icon" href="mpr.ico" />
+    <title>((dashboard-title))</title>
+    <script>
+        if (location.pathname == "/mipper/dashboard/") location.pathname = "/mipper/dashboard";
+        const user = "((userinfo))";
+        const totalMembers = "((total-members))";
+        const invite = "((invite))";
+        const cachingLine = "((caching))";
+    </script>
+</head>
+
+<body>
+    <div class="bg"></div>
+    <header>
+        <nav class="navbar">
+            <div class="mipper-logo">
+                <a href="/mipper">
+                    <img src="mipper.svg" width="32" height="32">
+                    <span class="mipper-txt">((mipper-name))</span>
+                </a>
+            </div>
+
+            <div class="user-preview">
+                <div class="user-pfp">
+                    <img width="32">
+                </div>
+                <div class="user-down-arrow">
+                    <img src="down_arrow.svg" alt="">
+                </div>
+            </div>
+        </nav>
+
+        <div class="overlay-container">
+            <div class="user-overlay">
+                <div class="overlay-upper-part">
+                    <div class="user-overlay-pfp">
+                        <img width="48">
+                    </div>
+                    <span class="user-overlay-tag"></span>
+                </div>
+                <div class="overlay-hr">
+                    <hr>
+                </div>
+                <div class="overlay-options">
+                    <a href="./dashboard">
+                        <overlay-option>
+                            <img src="cog.svg" width="16">
+                            <span>((dashboard))</span>
+                        </overlay-option>
+                    </a>
+                    <option-delimiter></option-delimiter>
+                    <overlay-option class="lang-option">
+                        <img src="lang.svg" width="16">
+                        <span>((language)): ((lang-name))</span>
+                    </overlay-option>
+                    <option-delimiter></option-delimiter>
+                    <a href="./logout">
+                        <overlay-option class="log-out">
+                            <img src="exit.svg" width="16">
+                            <span>((logout))</span>
+                        </overlay-option>
+                    </a>
+                </div>
+            </div>
+            <div class="lang-dropdown">
+                <overlay-option id="en">
+                    <span>English</span>
+                </overlay-option>
+                <overlay-option id="ru">
+                    <span>Русский</span>
+                </overlay-option>
+                <overlay-option id="ua">
+                    <span>Українська</span>
+                </overlay-option>
+            </div>
+        </div>
+    </header>
+    <main class="main-dashboard">
+        <p class="select">((select-the-server))</p>
+        <div class="top-wrapper">
+            <div class="guilds-wrapper"></div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="policies">
+            <a href="./privacy" target="_blank">((privacy))</a>
+            <a href="./terms" target="_blank">((terms))</a>
+        </div>
+        <p>© 2024 shikoshib</p>
+    </footer>
+    <script>
+        document.querySelector(".user-preview").style.display = "flex";
+
+        document.querySelector(".user-pfp img").src = user.avatar;
+        document.querySelector(".user-overlay-pfp img").src = user.avatar;
+        const username = user.username;
+        if (user.discriminator != "0") username += `#${user.discriminator}`
+        document.querySelector(".user-overlay-tag").innerHTML = username;
+    </script>
+    <script defer src="dash.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

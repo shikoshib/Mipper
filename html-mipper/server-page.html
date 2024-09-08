@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="((lang-iso))">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>((title))</title>
+    <link rel="stylesheet" href="../mipper.css">
+    <link rel="icon" href="((favicon))" />
+    <script>const guild = { channels: {}, name: "", id: null, icon: "", gp: null, lang: "", lvl: null, lvlMsgInfo: {}, lvlNotify: null, roles: {}, rewards: [], welcome: {} };
+        const giveLabel = "((give-role))";
+        const selectRole = "((select-role))";
+        const whenReachLvl = "((when-reach-lvl))";
+        const langName = "((lang-name))";
+        const bakDl = "((bak-dl))";
+        const bakCreating = "((bak-creating))";
+        const uploading = "((bak-uploading))";
+        const bakSelect = "((bak-select))";
+        const bakErr = "((bak-err))";
+        const saveText = "((save))";
+        const saving = "((saving))";
+        const user = "((userinfo))";
+        const todayAt = "((today-at))";
+    </script>
+    <style>
+        body {
+            overflow: hidden;
+        }
+    </style>
+    <script src="../showdown.min.js"></script>
+</head>
+
+<body>
+    <div class="icon-bg"></div>
+    <header>
+        <nav class="navbar">
+            <div class="mipper-logo">
+                <a href="/mipper">
+                    <img src="../mipper.svg" width="32" height="32">
+                    <span class="mipper-txt">((mipper-name))</span>
+                </a>
+            </div>
+
+            <div class="user-preview">
+                <div class="user-pfp">
+                    <img width="32">
+                </div>
+                <div class="user-down-arrow">
+                    <img src="../down_arrow.svg" alt="">
+                </div>
+            </div>
+        </nav>
+
+        <div class="overlay-container">
+            <div class="user-overlay">
+                <div class="overlay-upper-part">
+                    <div class="user-overlay-pfp">
+                        <img width="48">
+                    </div>
+                    <span class="user-overlay-tag"></span>
+                </div>
+                <div class="overlay-hr">
+                    <hr>
+                </div>
+                <div class="overlay-options">
+                    <a href="./">
+                        <overlay-option>
+                            <img src="../cog.svg" width="16">
+                            <span>((dashboard))</span>
+                        </overlay-option>
+                    </a>
+                    <option-delimiter></option-delimiter>
+                    <overlay-option class="lang-option">
+                        <img src="../lang.svg" width="16">
+                        <span>((language)): ((lang-name))</span>
+                    </overlay-option>
+                    <option-delimiter></option-delimiter>
+                    <a href="../logout">
+                        <overlay-option class="log-out">
+                            <img src="../exit.svg" width="16">
+                            <span>((logout))</span>
+                        </overlay-option>
+                    </a>
+                </div>
+            </div>
+            <div class="lang-dropdown">
+                <overlay-option id="en">
+                    <span>English</span>
+                </overlay-option>
+                <overlay-option id="ru">
+                    <span>Русский</span>
+                </overlay-option>
+                <overlay-option id="ua">
+                    <span>Українська</span>
+                </overlay-option></div>
+        </div>
+    </header>
+    <main class="mipper-server-panel">
+        <div class="mipper-panel-container">
+            <div class="mipper-sidebar">
+                <div class="mipper-properties">
+                    <property-selector id="general" class="property-selected">
+                        <p>((server-general-settings))</p>
+                    </property-selector>
+                    <property-selector id="leveling">
+                        <p>((server-leveling-system))</p>
+                    </property-selector>
+                    <property-selector id="welcome">
+                        <p>((server-welcome-system))</p>
+                    </property-selector>
+                    <property-selector id="backups">
+                        <p>((server-backups))</p>
+                    </property-selector>
+                </div>
+            </div>
+            <div class="mipper-controls">
+
+                <div class="mipper-controls-container controls-general">
+                    <h2>((server-general-settings))</h2>
+                    <hr>
+                    <div class="mipper-inputs">
+                        <div>
+                            <label for="lang">((bot-lang))</label>
+                            <select name="lang" id="lang">
+                                <option value="en" id="lang-en">English</option>
+                                <option value="ru" id="lang-ru">Русский</option>
+                                <option value="ua" id="lang-ua">Українська</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="gp">
+                            <label for="gp" class="help" title="((gp-desc))">((gp))</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mipper-controls-container controls-leveling controls-offscreen">
+                    <h2>((server-leveling-system))</h2>
+                    <hr>
+                    <div>
+                        <input type="checkbox" id="lvl-turnon">
+                        <label for="lvl-turnon">((lvl-enable))</label>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" id="lvl-notify">
+                        <label for="lvl-notify">((lvl-notify))</label>
+                        <div class="var-doc">
+                            <p class="var-title">((var-title))</p>
+                            <p>
+                                <span class="var-md">{{member}}</span> - ((var-lvl-member))
+                            </p>
+                            <p>
+                                <span class="var-md">{{level}}</span> - ((var-lvl))
+                            </p>
+                        </div>
+                        <div class="message-customizer">
+                            <div class="message-input-box">
+                                <textarea id="lvl-custommsg"></textarea>
+                            </div>
+                            <div class="message-embed-box">
+                                <div class="embed-title-container">
+                                    <div>
+                                        <label for="embed-title">((embed-title))</label>
+                                        <input type="text" id="embed-title">
+                                    </div>
+                                    <div>
+                                        <label for="embed-title-url">((embed-title-url))</label>
+                                        <input type="text" id="embed-title-url">
+                                    </div>
+                                </div>
+                                <div class="embed-content-container">
+                                    <label for="embed-content">((embed-content))</label>
+                                    <textarea type="text" id="embed-content"></textarea>
+                                </div>
+                                <div class="embed-images-container">
+                                    <div>
+                                        <label for="embed-thumbnail">((embed-thumbnail))</label>
+                                        <input type="text" id="embed-thumbnail">
+                                    </div>
+                                    <div>
+                                        <label for="embed-image">((embed-image))</label>
+                                        <input type="text" id="embed-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="msg-type">
+                                <p>((message-type))</p>
+                                <div class="msg-radio">
+                                    <input type="radio" id="msg-default" name="msg-type" value="default" />
+                                    <label for="msg-default">((message-type-default))</label>
+                                </div>
+                                <div class="msg-radio">
+                                    <input type="radio" id="msg-embed" name="msg-type" value="embed" />
+                                    <label for="msg-embed">((message-type-embed))</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="discord-preview">
+                            <div class="preview-mipper-pfp">
+                                <img src="../mipper.png">
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-upper-part">
+                                    <div class="preview-msg">
+                                        <p class="preview-username">Mipper</p>
+                                    </div>
+                                    <div class="preview-bot">
+                                        <span class="bot-text">((bot-tag))</span>
+                                    </div>
+                                    <div class="preview-timestamp"></div>
+                                </div>
+                                <div class="preview-embed">
+                                    <div class="embed-upper-part">
+                                        <div class="embed-tc">
+                                            <div class="preview-embed-title"></div>
+                                            <div class="preview-embed-content">
+                                            </div>
+                                        </div>
+                                        <div class="embed-thumbnail">
+                                        </div>
+                                    </div>
+                                    <div class="embed-image">
+                                    </div>
+                                </div>
+                                <div class="preview-msg-content">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3>((rewards))</h3>
+                    <div class="rewards-list">
+                        <div class="rewards">
+
+                        </div>
+                        <div class="add-reward">
+                            <img src="../plus.svg">
+                            <p>((reward-add))</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mipper-controls-container controls-welcome controls-offscreen">
+                    <h2>((server-welcome-system))</h2>
+                    <hr>
+                    <div>
+                        <input type="checkbox" id="welcome-turnon">
+                        <label for="welcome-turnon">((welcome-enable))</label>
+                        <div style="margin-top: 16px;">
+                            <label for="welcome-channels">((welcome-channel))</label>
+                            <select id="welcome-channels"></select>
+                        </div>
+                        <div class="var-doc">
+                            <p class="var-title">((var-title))</p>
+                            <p>
+                                <span class="var-md">{{member}}</span> - ((var-welcome-member))
+                            </p>
+                            <p>
+                                <span class="var-md">{{name}}</span> - ((var-name))
+                            </p>
+                        </div>
+                        <div class="message-customizer welcome-customizer">
+                            <div class="message-input-box">
+                                <textarea id="welcome-custommsg"></textarea>
+                            </div>
+                            <div class="message-embed-box">
+                                <div class="embed-title-container">
+                                    <div>
+                                        <label for="wembed-title">((embed-title))</label>
+                                        <input type="text" id="wembed-title">
+                                    </div>
+                                    <div>
+                                        <label for="wembed-title-url">((embed-title-url))</label>
+                                        <input type="text" id="wembed-title-url">
+                                    </div>
+                                </div>
+                                <div class="embed-content-container">
+                                    <label for="wembed-content">((embed-content))</label>
+                                    <textarea type="text" id="wembed-content"></textarea>
+                                </div>
+                                <div class="embed-images-container">
+                                    <div>
+                                        <label for="wembed-thumbnail">((embed-thumbnail))</label>
+                                        <input type="text" id="wembed-thumbnail">
+                                    </div>
+                                    <div>
+                                        <label for="wembed-image">((embed-image))</label>
+                                        <input type="text" id="wembed-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="msg-type">
+                                <p>((message-type))</p>
+                                <div class="wmsg-radio">
+                                    <input type="radio" id="wmsg-default" name="wmsg-type" value="default" />
+                                    <label for="wmsg-default">((message-type-default))</label>
+                                </div>
+                                <div class="wmsg-radio">
+                                    <input type="radio" id="wmsg-embed" name="wmsg-type" value="embed" />
+                                    <label for="wmsg-embed">((message-type-embed))</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="discord-preview">
+                            <div class="preview-mipper-pfp">
+                                <img src="../mipper.png">
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-upper-part">
+                                    <div class="preview-msg">
+                                        <p class="preview-username">Mipper</p>
+                                    </div>
+                                    <div class="preview-bot">
+                                        <span class="bot-text">((bot-tag))</span>
+                                    </div>
+                                    <div class="preview-timestamp"></div>
+                                </div>
+                                <div class="preview-embed wembed">
+                                    <div class="embed-upper-part">
+                                        <div class="embed-tc">
+                                            <div class="preview-embed-title"></div>
+                                            <div class="preview-embed-content">
+                                            </div>
+                                        </div>
+                                        <div class="embed-thumbnail">
+                                        </div>
+                                    </div>
+                                    <div class="embed-image">
+                                    </div>
+                                </div>
+                                <div class="preview-msg-content wmsg">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" id="wl-turnon">
+                        <label for="wl-turnon">((wl-enable))</label>
+                        <div class="var-doc">
+                            <p class="var-title">((var-title))</p>
+                            <p>
+                                <span class="var-md">{{member}}</span> - ((var-wl-member))
+                            </p>
+                            <p>
+                                <span class="var-md">{{name}}</span> - ((var-name))
+                            </p>
+                        </div>
+                        <div class="message-customizer wl-customizer">
+                            <div class="message-input-box">
+                                <textarea id="wl-custommsg"></textarea>
+                            </div>
+                            <div class="message-embed-box">
+                                <div class="embed-title-container">
+                                    <div>
+                                        <label for="wlembed-title">((embed-title))</label>
+                                        <input type="text" id="wlembed-title">
+                                    </div>
+                                    <div>
+                                        <label for="wlembed-title-url">((embed-title-url))</label>
+                                        <input type="text" id="wlembed-title-url">
+                                    </div>
+                                </div>
+                                <div class="embed-content-container">
+                                    <label for="wlembed-content">((embed-content))</label>
+                                    <textarea type="text" id="wlembed-content"></textarea>
+                                </div>
+                                <div class="embed-images-container">
+                                    <div>
+                                        <label for="wlembed-thumbnail">((embed-thumbnail))</label>
+                                        <input type="text" id="wlembed-thumbnail">
+                                    </div>
+                                    <div>
+                                        <label for="wlembed-image">((embed-image))</label>
+                                        <input type="text" id="wlembed-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="msg-type">
+                                <p>((message-type))</p>
+                                <div class="wlmsg-radio">
+                                    <input type="radio" id="wlmsg-default" name="wlmsg-type" value="default" />
+                                    <label for="wlmsg-default">((message-type-default))</label>
+                                </div>
+                                <div class="wlmsg-radio">
+                                    <input type="radio" id="wlmsg-embed" name="wlmsg-type" value="embed" />
+                                    <label for="wlmsg-embed">((message-type-embed))</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="discord-preview">
+                            <div class="preview-mipper-pfp">
+                                <img src="../mipper.png">
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-upper-part">
+                                    <div class="preview-msg">
+                                        <p class="preview-username">Mipper</p>
+                                    </div>
+                                    <div class="preview-bot">
+                                        <span class="bot-text">((bot-tag))</span>
+                                    </div>
+                                    <div class="preview-timestamp"></div>
+                                </div>
+                                <div class="preview-embed wlembed">
+                                    <div class="embed-upper-part">
+                                        <div class="embed-tc">
+                                            <div class="preview-embed-title"></div>
+                                            <div class="preview-embed-content">
+                                            </div>
+                                        </div>
+                                        <div class="embed-thumbnail">
+                                        </div>
+                                    </div>
+                                    <div class="embed-image">
+                                    </div>
+                                </div>
+                                <div class="preview-msg-content wlmsg">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mipper-controls-container controls-backups controls-offscreen">
+                    <h2>((server-backups))</h2>
+                    <hr>
+                    <h4>((bak-create))</h4>
+                    <hr>
+                    <span class="bak-label">((bak-include))</span>
+                    <div class="bak-checkboxes">
+                        <input type="checkbox" id="bak-channels" checked>
+                        <label for="bak-channels">((bak-channels))</label>
+                        <input type="checkbox" id="bak-roles" checked>
+                        <label for="bak-roles">((bak-roles))</label>
+                        <input type="checkbox" id="bak-emojis" checked>
+                        <label for="bak-emojis">((bak-emojis))</label>
+                    </div>
+                    <button class="bak-dl">((bak-dl))</button>
+                    <hr>
+                    <h4>((bak-upload))</h4>
+                    <hr>
+                    <div class="file-form">
+                        <div class="bak-ul-wrapper">
+                            <input type="file" id="bak-ul" accept=".mipper">
+                            <label for="bak-ul" class="bak-file-label">
+                                ((bak-select))
+                            </label>
+                        </div>
+                        <span class="bak-err"></span>
+                    </div>
+                </div>
+
+                <div class="save">
+                    <button disabled>((save))</button>
+                </div>
+            </div>
+        </div>
+        <div class="done-wrapper">
+            <img src="../../svg/check.svg" width="16" height="16">
+            <span>((done))</span>
+        </div>
+    </main>
+    <script>
+        document.querySelector(".user-preview").style.display = "flex";
+
+        document.querySelector(".user-pfp img").src = user.avatar;
+        document.querySelector(".user-overlay-pfp img").src = user.avatar;
+        const username = user.username;
+        if (user.discriminator != "0") username += `#${user.discriminator}`
+        document.querySelector(".user-overlay-tag").innerHTML = username;
+    </script>
+    <script src="../main.js"></script>
+    <script src="../server.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="((lang-iso))">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>((privacy)) | ((mipper-name))</title>
+    <link rel="stylesheet" href="mipper.css">
+    <link rel="icon" href="./mpr.ico" />
+    <link rel="stylesheet" href="anchorfix.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="mipper-logo">
+                <a href="./">
+                    <img src="mipper.svg" width="32" height="32">
+                    <span class="mipper-txt">((mipper-name))</span>
+                </a>
+            </div>
+            <div class="login-wrapper">
+                <a href="dashboard">((log-in))</a>
+            </div>
+            <div class="user-preview">
+                <div class="user-pfp">
+                    <img width="32">
+                </div>
+                <div class="user-down-arrow">
+                    <img src="down_arrow.svg" alt="">
+                </div>
+            </div>
+        </nav>
+
+        <div class="overlay-container">
+            <div class="user-overlay">
+                <div class="overlay-upper-part">
+                    <div class="user-overlay-pfp">
+                        <img width="48">
+                    </div>
+                    <span class="user-overlay-tag"></span>
+                </div>
+                <div class="overlay-hr">
+                    <hr>
+                </div>
+                <div class="overlay-options">
+                    <a href="./dashboard">
+                        <overlay-option>
+                            <img src="cog.svg" width="16">
+                            <span>((dashboard))</span>
+                        </overlay-option>
+                    </a>
+                    <option-delimiter></option-delimiter>
+                    <overlay-option class="lang-option">
+                        <img src="lang.svg" width="16">
+                        <span>((language)): ((lang-name))</span>
+                    </overlay-option>
+                    <option-delimiter></option-delimiter>
+                    <a href="./logout">
+                        <overlay-option class="log-out">
+                            <img src="exit.svg" width="16">
+                            <span>((logout))</span>
+                        </overlay-option>
+                    </a>
+                </div>
+            </div>
+            <div class="lang-dropdown">
+                <overlay-option id="en">
+                    <span>English</span>
+                </overlay-option>
+                <overlay-option id="ru">
+                    <span>Русский</span>
+                </overlay-option>
+                <overlay-option id="ua">
+                    <span>Українська</span>
+                </overlay-option></div>
+        </div>
+    </header>
+    <main class="policy">
+        <div>
+            <h1>((privacy-title))</h1>
+            <h2>((privacy-title1))</h2>
+            <p>((privacy-content1))</p>
+            <h2>((privacy-title2))</h2>
+            <p>((privacy-content2))</p>
+            <h2>((privacy-title3))</h2>
+            <p>((privacy-content3))</p>
+            <h2>((privacy-title4))</h2>
+            <p>((privacy-content4))</p>
+            <p>
+                <policy-effective>((privacy-effective))</policy-effective>
+            </p>
+        </div>
+    </main>
+    <footer class="footer">
+        
+        <div class="policies">
+            <a href="./privacy" target="_blank">((privacy))</a>
+            <a href="./terms" target="_blank">((terms))</a>
+        </div>
+        <p>© 2024 shikoshib</p>
+    </footer>
+    <script>
+        const user = "((userinfo))";
+
+        if (user) {
+            document.querySelector(".user-preview").style.display = "flex";
+            document.querySelector(".login-wrapper").style.display = "none";
+
+            document.querySelector(".user-pfp img").src = user.avatar;
+            document.querySelector(".user-overlay-pfp img").src = user.avatar;
+            let username = user.username;
+            if (user.discriminator != "0") username += `#${user.discriminator}`
+            document.querySelector(".user-overlay-tag").innerHTML = username;
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>
