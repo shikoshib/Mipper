@@ -17,3 +17,21 @@ But nothing lasts forever. On September 15th, 2024, Mipper was officially shut d
 So in order to honor Mipper's legacy, I'm publicly uploading the source code. It may be messy, unstable and buggy, **but it's mine**.
 
 Rest in Peace, Mipper. 2022/01/10 - 2024/09/15
+
+# Setting up
+## Creating the bot account
+1. Go to the [Discord Developer Portal](https://discord.com/developers) and create a new bot by clicking "New Application".
+2. Copy **Application ID** and put it into `config.json` (`clientId` property).
+3. Go to "OAuth2" and reset the "Client Secret", then put it into `config.json` (`clientSecret` property).
+4. Hit "Add Redirect" and insert `http://localhost:3000/auth/discord/redirect`.
+5. Go to "Bot" and reset the **Token**, then put it into `config.json` (`token` property).
+6. Finally, go back to "OAuth2" to the URL Generator. Choose `applications.commands` and `bot`, then select the **Administrator** permissions.
+7. Copy the generated link below and invite the bot to your server by opening it.
+
+Now, let's set up the actual bot.
+1. Download [Node.js](https://nodejs.org/en/download) if you haven't already.
+2. Download this repository and extract it in any directory.
+3. Open the said directory in the command prompt or PowerShell.
+4. Run `npm i` to install all of the packages.
+5. After they're installed, run `npm start`.
+6. Once the console says `Mipper is running`, the bot should work and the website should be running at http://localhost:3000/
