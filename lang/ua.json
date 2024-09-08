@@ -1,7 +1,6 @@
 {
     "8BALL_ANSWERS": [
         "Так",
-        "Так",
         "Ні",
         "Безсумнівно",
         "Навіть не пробуй",
@@ -26,9 +25,6 @@
     "BAN_FROM": "Ви були забанені на",
     "BAN_BY": "Вас забанив",
     "WHOOPS_ERR": "Упс, произошла ошибка!",
-    "BOTINFO_TITLE": "Информация о Mipper",
-    "THX": "Спасибо за использование Mipper!",
-    "BOTINFO_DESC": "Бот використовується на **{{servers}}** серверів, з **{{channels}}** каналами і **{{users}}** користувачами.\nЗробив `shikoshib`\n**-------------------**\nБот зроблений за допомогою Node.js і [discord.js](https://discord.js.org/) 13.17.1.\n\nMipper використовує бібліотеку [gj-boomlings-api](https://github.com/shikoshib/gj-boomlings-api) для взаємодії із серверами Geometry Dash.\n\nГенератор помилок Windows створено за допомогою бібліотеки [node-canvas](https://github.com/Automattic/node-canvas), а також заснований на [winerr](https://shikoshib.ru/winerr), генераторі помилок Windows.\n\nКоманда */ai* використовує **YandexGPT**, модель ШІ від [Яндекс](https://ya.ru/ai/gpt-3).\n**-------------------**\n**Окремі подяки**:\n`diocs, datukich, kotvpanke, .dmytroyastrubiv`\n**-------------------**",
     "SMTH_WRONG": "Щось пішло не так",
     "CHANNEL_TYPES": {
         "GUILD_TEXT": "<:text:994095863838298123> Текстовий",

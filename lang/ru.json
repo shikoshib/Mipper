@@ -25,9 +25,6 @@
     "BAN_FROM": "Вы были забанены на",
     "BAN_BY": "Вас забанил",
     "WHOOPS_ERR": "Упс, произошла ошибка!",
-    "BOTINFO_TITLE": "Информация о Mipper",
-    "THX": "Спасибо за использование Mipper!",
-    "BOTINFO_DESC": "Бот используется на **{{servers}}** серверах, с **{{channels}}** каналами и **{{users}}** пользователями.\nСделал `shikoshib`\n**———————————————————**\nБот сделан с помощью Node.js и [discord.js](https://discord.js.org/) 13.17.1.\n\nMipper использует библиотеку [gj-boomlings-api](https://github.com/shikoshib/gj-boomlings-api) для взаимодействия с серверами Geometry Dash.\n\nГенератор ошибок Windows создан с помощью библиотеки [node-canvas](https://github.com/Automattic/node-canvas), а также основан на [winerr](https://shikoshib.ru/winerr), генераторе ошибок Windows.\n\nКоманда */ai* использует **YandexGPT**, модель ИИ от [Яндекс](https://ya.ru/ai/gpt-3).\n**———————————————————**\n**Отдельные благодарности**:\n`diocs, datukich, kotvpanke, .dmytroyastrubiv`\n**———————————————————**",
     "SMTH_WRONG": "Что-то пошло не так",
     "CHANNEL_TYPES": {
         "GUILD_TEXT": "<:text:994095863838298123> Текстовый",
@@ -166,7 +163,7 @@
     "CONVERSION_DONE": "Конвертация завершена! Загружаю...",
     "LEVEL": "Уровень",
     "LEADERBOARD": "Таблица лидеров {{name}}",
-    "LVL_DISABLED":"Система уровней отключена на этом сервере.",
+    "LVL_DISABLED": "Система уровней отключена на этом сервере.",
     "WARN_NOPERMS": "У вас нет права на управление участниками!",
     "WARN_SELF": "Вы не можете выдать предупреждение себе!",
     "WARN_SUCCESS": "был предупреждён.",

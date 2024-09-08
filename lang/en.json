@@ -25,9 +25,6 @@
     "BAN_FROM": "You got banned from",
     "BAN_BY": "You got banned by",
     "WHOOPS_ERR": "Whoops, an error happened!",
-    "BOTINFO_TITLE": "Mipper info",
-    "THX": "Thanks for using Mipper!",
-    "BOTINFO_DESC": "The bot is used in **{{servers}}** servers, with **{{channels}}** channels and **{{users}}** users.\nMade by `shikoshib`\n**———————————————————**\nThe bot is made using Node.js and [discord.js](https://discord.js.org/) 13.17.1.\n\nMipper uses the [gj-boomlings-api](https://github.com/shikoshib/gj-boomlings-api) library for interacting with Geometry Dash servers.\n\nThe Windows error generator is made using [node-canvas](https://github.com/Automattic/node-canvas) library and is based on [winerr](https://shikoshib.ru/winerr), a Windows fake error generator.\n\nThe */ai* command uses **YandexGPT**, an AI language model by [Yandex](https://ya.ru/ai/gpt-3).\n**———————————————————**\n**Special thanks to**:\n`diocs, datukich, kotvpanke, .dmytroyastrubiv`\n**———————————————————**",
     "SMTH_WRONG": "Something went wrong",
     "CHANNEL_TYPES": {
         "GUILD_TEXT": "<:text:994095863838298123> Text",
