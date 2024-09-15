@@ -19,7 +19,7 @@ So in order to honor Mipper's legacy, I'm publicly uploading the source code. It
 Rest in Peace, Mipper. 2022/01/10 - 2024/09/15
 
 # Setting up
-Before the actual set up, I want to mention a few things that Mipper had, but are left out in this repository.
+Before the actual setup, I want to mention a few things that Mipper had, but are left out in this repository.
 * AI chatbot (`/ai`)
   
   It uses the YandexGPT model, which is a genuine pain to set up, and gives worse output that GPT-3.5.
